@@ -1,0 +1,14 @@
+version: '2'
+services:
+  radicale:
+    image: radicale
+    build:
+      context: radicale
+  nginx:
+    image: nginx:mainline-alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - radicale
+    ports:
+      - 5232:80
