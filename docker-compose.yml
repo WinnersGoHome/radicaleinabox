@@ -1,14 +1,14 @@
 version: '2'
 services:
-  radicale:
-    image: radicale
+  radicale-uwsgi:
+    image: radicale-uwsgi
     build:
-      context: radicale
-  nginx:
-    image: nginx:mainline-alpine
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      context: radicale-uwsgi
+  radicale-nginx:
+    image: radicale-nginx
+    build:
+      context: radicale-nginx
     depends_on:
-      - radicale
-    ports:
+      - radicale-uwsgi
+    ports: 
       - 5232:80
