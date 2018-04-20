@@ -11,6 +11,6 @@ RUN apk add --no-cache \
         radicale \
         passlib
 RUN mkdir ./data && cp ./users.default ./data/users && chown uwsgi:uwsgi -R .
-ENV RADICALE_CONFIG /usr/local/radicale/config.ini
+ENV RADICALE_CONFIG /usr/local/radicale/radicale.ini
 VOLUME /usr/local/radicale/data
 CMD [ "uwsgi", "--ini", "uwsgi.ini", "--wsgi-file", "radicale.wsgi" ]

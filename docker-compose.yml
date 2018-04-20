@@ -1,14 +1,14 @@
 version: '2'
 services:
-  radicale-uwsgi:
-    image: radicale-uwsgi
+  uwsgi:
+    image: uwsgi
     build:
-      context: radicale-uwsgi
-  radicale-nginx:
-    image: radicale-nginx
+      context: uwsgi
+  nginx:
+    image: nginx
     build:
-      context: radicale-nginx
+      context: nginx
     depends_on:
-      - radicale-uwsgi
+      - uwsgi
     ports: 
       - 5232:80
