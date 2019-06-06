@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   uwsgi:
-    image: uwsgi
+    image: radicaleinabox-uwsgi
     build:
       context: uwsgi
     volumes:
@@ -9,7 +9,7 @@ services:
         source: data
         target: /usr/local/radicale/data
   nginx:
-    image: nginx
+    image: radicaleinabox-nginx
     build:
       context: nginx
     depends_on:

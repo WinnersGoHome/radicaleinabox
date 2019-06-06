@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:latest
 EXPOSE 3031
 WORKDIR /usr/local/radicale
 COPY . .
