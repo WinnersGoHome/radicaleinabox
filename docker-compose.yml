@@ -1,4 +1,5 @@
 version: '3.2'
+
 services:
   uwsgi:
     image: radicaleinabox-uwsgi
@@ -8,6 +9,7 @@ services:
       - type: volume
         source: data
         target: /usr/local/radicale/data
+    restart: unless-stopped
   nginx:
     image: radicaleinabox-nginx
     build:
@@ -16,6 +18,7 @@ services:
       - uwsgi
     ports: 
       - 5232:80
+    restart: unless-stopped
 
 volumes:
   data:
